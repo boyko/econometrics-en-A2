@@ -36,7 +36,7 @@ estATA1
 R <- 2000
 n <- 500
 
-simTaxes <- sample(pop$taxes, n*R, replace = TRUE)
+simTaxes <- sample(pop$taxes, size = n*R, replace = TRUE)
 
 samplesData <- data.frame(
   taxes = simTaxes, 
