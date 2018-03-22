@@ -23,7 +23,7 @@ ggplot(data = pop, aes(x = taxes)) + geom_histogram(bins=50)
 
 ATA <- mean(pop$taxes)
 
-# e) Draw a sample of 100 persona (with replacement)
+# e) Draw a sample of 100 persons (with replacement)
 
 sampleTaxes <- sample(pop$taxes, size = 100, replace = TRUE)
 str(sampleTaxes)
