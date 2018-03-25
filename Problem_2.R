@@ -6,15 +6,16 @@ library(dplyr)
 # a) Download and read the data
 pop <- read.csv('http://econometrics2018.s3-website.eu-central-1.amazonaws.com/data/cex16pop.csv')
 
-# a) Calculate average taxes by sex
+# a) Calculate the population mean for male and female
 
 popTaxesMale <- pop$taxes[pop$sex == 'Male']
 popTaxesFemale <- pop$taxes[pop$sex == 'Female']
 
-meanTaxesMale <- mean(popTaxesMale)
-meanTaxesFemale <- mean(popTaxesFemale)
-meanTaxesMale
-meanTaxesFemale
+popMeanMale <- mean(popTaxesMale)
+popMeanFemale <- mean(popTaxesFemale)
+
+popMeanMale
+popMeanFemale
 
 # b) Boxplots for the distribution of taxes by sex
 ggplot(data = pop, aes(y = taxes, x = sex)) + 
@@ -35,7 +36,7 @@ sample1 <- pop[sampledRows1, ]
 
 ## Test hypothesis 1
 t.test(taxes ~ sex, data = sample1)
-
+t.test(taxes ~ sex, data = sample1, var.equal = TRUE)
 ## Test hypothesis 2
 
 t.test(taxes ~ sex, data = sample1, alternative = 'less')
@@ -52,7 +53,7 @@ t.test(taxes ~ sex, data = sample1, alternative = 'greater')
 R <- 2000
 
 ## sample size
-n <- 1000
+n <- 500
 
 sampleRows <- sample(1:N, size = n * R, replace = TRUE)
 samplesData <- pop[sampleRows, ]
@@ -63,13 +64,12 @@ samplesData <- within(samplesData, {
 
 groupedSamples <- group_by(samplesData, r)
 
-testFunc <- function(taxes, sex) {
+testH0 <- function(taxes, sex) {
   testResult <- t.test(taxes ~ sex)
   return(testResult$p.value < 0.05)
 }
 
-diffTaxesEst <- summarise(groupedSamples,
-                          taxesDiff = testFunc(taxes, sex)
+testResultsBySample <- summarise(groupedSamples,
+                          rejection = testH0(taxes, sex)
                           )
-summary(diffTaxesEst)
-
+summary(testResultsBySample)
