@@ -17,6 +17,7 @@ str(pop)
 # 1) Look whether the variables are summarised appropriately
 #    Categorical variables (e.g. sex) are summarised by a frequency table,
 #    i.e. a table of counts (how many observations have sex=Female, how many obs have sex=Male, etc.)
+# 2) Look for extreme/unusual values
 summary(pop)
 
 # b) Summarise 'sex' using a bar chart
