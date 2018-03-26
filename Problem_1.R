@@ -1,5 +1,7 @@
 # install.packages(c('dplyr', 'ggplot2'))
-rm(list = ls())
+
+# rm(list = ls())
+
 library(ggplot2)
 library(dplyr)
 
@@ -28,14 +30,18 @@ ggplot(data = pop, aes(x = sex)) + geom_bar()
 
 ggplot(data = pop, aes(x = taxes)) + geom_histogram(bins=50)
 
+sd(pop$taxes)^2
 
 # d) Population mean: average tax amount paid by person
 
 populationMean <- mean(pop$taxes)
+populationMean
+
 
 # e) Draw a sample of 100 persons (with replacement)
 
 sampleTaxes <- sample(pop$taxes, size = 100, replace = TRUE)
+head(sampleTaxes)
 str(sampleTaxes)
 
 # Calculate the sample mean which we use as an estimate of the population mean
@@ -76,7 +82,7 @@ groupedSamples <- group_by(samplesData, r)
 # Next we use the grouped data from the previous step
 # to calculate the sample means
 sampleMeansBySample <- summarise(groupedSamples, sampleMean = mean(taxes))
-
+str(sampleMeansBySample)
 # g) Histogram: distribution of the sample mean
 
 # Next we draw a histogram of the sample means
@@ -136,7 +142,7 @@ ggplot(data = sampleMeansBySample, aes(x = sampleMean)) +
 
 # i) 
 
-# Estimate the standard deviation of "taxes" using the single sample selected in e)
+# Estimate the standard deviation of "taxes" (from the first sample) using the single sample selected in e)
 sampleStdDev1 <- sd(sampleTaxes)
 
 # Calculate the 2.5% and 97.5% quantiles of the standard normal distribution
