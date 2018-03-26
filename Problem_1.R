@@ -1,6 +1,6 @@
+# Install packages if necessary
+# To install the packages, uncomment the following line and run it.
 # install.packages(c('dplyr', 'ggplot2'))
-
-# rm(list = ls())
 
 library(ggplot2)
 library(dplyr)
