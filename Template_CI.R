@@ -11,16 +11,15 @@ pop <- read.csv('http://econometrics2018.s3-website.eu-central-1.amazonaws.com/d
 
 sampleTaxes <- sample(pop$taxes, size = ???, replace = TRUE)
 
-## Compute a 95\% normal CI for the sample in sampleTaxes
-
-## Compute a 95\% t CI for the sample in sampleTaxes
-
-
-## Compute a 95\% t-confidence interval for the population mean
+## Compute a 95\% normal CI for the population mean with the sample in sampleTaxes
 
 lowerCIlimit <- 
 upperCIlimit <- 
 
+## Compute a 95\% t CI for the population mean with the sample in sampleTaxes
+
+upperTCIlimit <- 
+lowerTCIlimit <- 
 
 ## Select 1000 samples of size 50 with replacement from the taxes column in pop.
 
