@@ -6,7 +6,7 @@ pop <- read.csv('http://econometrics2018.s3-website.eu-central-1.amazonaws.com/d
 n <- 50
 sampleTaxes <- sample(pop$taxes, size = 50, replace = TRUE)
 
-# A) Test the hypothesis H_0: mu = 1000 vs the alternative H_1: mu != 1000
+# A) Test the hypothesis H_0: mu = 1000 vs the two-sided alternative H_1: mu != 1000
 
 muH0 <- 1000
 
@@ -18,18 +18,18 @@ muH0 <- 1000
 ## under the null hypothesis
 
 criticalLower <- 
-  criticalUpper <- 
+criticalUpper <- 
   
   
-  ## 3A) Compare the test statistic with the critical values
-  ## and decide if you reject the null hypothesis
+## 3A) Compare the test statistic with the critical values
+## and decide if you reject the null hypothesis
   
-  ## 4A) Calculate the p-value of the test
+## 4A) Calculate the p-value of the test
   
-  ## 5A) Perform the test using the function t.test
+## 5A) Perform the test using the function t.test
   
   
-  # B) Test the null hypothesis H_0: mu = 1000 vs the alternative H_1: mu > 1000
+# B) Test the null hypothesis H_0: mu = 1000 vs the alternative H_1: mu > 1000
 
 ## 1B) Compute the test statistic
 
