@@ -18,18 +18,18 @@ muH0 <- 1000
 ## under the null hypothesis
 
 criticalLower <- 
-criticalUpper <- 
-
-
-## 3A) Compare the test statistic with the critical values
-## and decide if you reject the null hypothesis
-
-## 4A) Calculate the p-value of the test
-
-## 5A) Perform the test using the function t.test
-
-
-# B) Test the null hypothesis H_0: mu = 1000 vs the alternative H_1: mu > 1000
+  criticalUpper <- 
+  
+  
+  ## 3A) Compare the test statistic with the critical values
+  ## and decide if you reject the null hypothesis
+  
+  ## 4A) Calculate the p-value of the test
+  
+  ## 5A) Perform the test using the function t.test
+  
+  
+  # B) Test the null hypothesis H_0: mu = 1000 vs the alternative H_1: mu > 1000
 
 ## 1B) Compute the test statistic
 
@@ -53,13 +53,16 @@ samples <- sample(pop$taxes, size = R * n, replace = TRUE)
 samplesData <- data.frame(x = samples, sampleIndex = rep(1:R, each = n))
 
 rejectH0 <- function(x) {
-  testResult <- t.test(x, mu = muH0, alternative = 'two-sided')
-  return(testResult$p.value < 0.05)
- }
+  testResult <- t.test(x, mu = ???, alternative = 'two.sided')
+  return(testResult$p.value < ???)
+}
 
-samplesData %>% 
+samplesSummary <- 
+  samplesData %>% 
   group_by(sampleIndex) %>%
   summarise(rejectedH0 = rejectH0(x))
+
+table(samplesSummary$rejectedH0)
 
 
 
