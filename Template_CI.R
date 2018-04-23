@@ -34,7 +34,7 @@ samplesData <- data.frame(x = samples, sampleIndex = rep(1:R, each = n))
 groupedSamplesData <- group_by(samplesData, sampleIndex)
 samplesSummary <- summarise(groupedSamplesData,
    sampleMean = mean(x),
-   sampleStdDev = sqrt(var(x)),
+   sampleStdDev = sqrt(var(x))
 )
 
 ## Compute 95\% t-confidence interval for each sample
@@ -66,12 +66,12 @@ ggplot(data = data.frame(y  = sampleTaxes)) + stat_qq(aes(sample = y))
 
 ## Visualise the first 20 confidence intervals
 
-ggplot(data = ???, aes(x = ???)) +  # Select the data 
+ggplot(data = samplesSummary, aes(x = sampleIndex, y = sampleMean)) +  # Select the data 
   ## Draw the sample means as points
-  geom_point(aes(y = ???)) +
+  geom_point() +
   # Draw a horizontal line at the position of the population mean
-  geom_hline(yintercept = ???) +
+  geom_hline(yintercept = mean(pop$taxes) +
   ## Draw error bars to represent the confidence intervals  
-  geom_errorbar(aes(ymin = ???, ymax = ???)) +
+  geom_errorbar(aes(ymin = tCIlower, ymax = tCIupper))
 
 
