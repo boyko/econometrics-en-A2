@@ -70,7 +70,7 @@ ggplot(data = samplesSummary, aes(x = sampleIndex, y = sampleMean)) +  # Select 
   ## Draw the sample means as points
   geom_point() +
   # Draw a horizontal line at the position of the population mean
-  geom_hline(yintercept = mean(pop$taxes) +
+  geom_hline(yintercept = mean(pop$taxes)) +
   ## Draw error bars to represent the confidence intervals  
   geom_errorbar(aes(ymin = tCIlower, ymax = tCIupper))
 
