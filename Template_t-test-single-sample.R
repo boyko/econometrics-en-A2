@@ -6,7 +6,7 @@ pop <- read.csv('http://econometrics2018.s3-website.eu-central-1.amazonaws.com/d
 n <- 50
 sampleTaxes <- sample(pop$taxes, size = 50, replace = TRUE)
 
-# A) Test the hypothesis H_0: mu = 1000 vs the two-sided alternative H_1: mu != 1000
+# A) Test the hypothesis H_0: mu <= 1000 vs the two-sided alternative H_1: mu != 1000
 
 muH0 <- 1000
 
